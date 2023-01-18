@@ -1,49 +1,55 @@
-const batons= document.querySelectorAll('.baton');
 
-const wordsForTheGame= ['red','blue','yellow','orange','green','black'];
-
-
-let randomWord=Math.floor(Math.random() * 6);
-
-const initialText = wordsForTheGame[randomWord];
-var randomIndex = Math.floor(Math.random() *6);//creates random No. from 1 - 3
 var score = 0;
-var wordToclick = wordsForTheGame[randomWord];
+game_completed=false;
 
-const word2click=document.getElementById('word2Click')
-const resultDisplay=document.getElementById('result')
-batons.forEach(batons=>batons.addEventListener('click', (e)=>{
-}))
-let clickEvent = (e) =>{
-   getPoint(e)
-        console.log(wordsForTheGame[randomWord],score)
-     
+var batonik1 = document.getElementById('batonik1')
+var batonik2 = document.getElementById('batonik2')
+var batonik3 = document.getElementById('batonik3')
+var batonik4 = document.getElementById('batonik4')
+var batonik5 = document.getElementById('batonik5')
+var batonik6 = document.getElementById('batonik6')
 
-}
-function returnWord2click(){
-return word2click.innerHtml = wordsForTheGame[randomWord];
-}
-    
-Array.prototype.forEach.call(batons, (btn) => {
-    btn.addEventListener('click', clickEvent);
-    var randomIndex = Math.floor(Math.random() * wordsForTheGame.length);
-    btn.innerHTML = wordsForTheGame[randomIndex];
-    btn.style.backgroundColor = wordsForTheGame[randomIndex];
-    
-});
+var wordsForTheGame= ['red','blue','yellow','orange','green','black'];
 
-function changeC() { 
-    return ;
-};
+const randomWord=Math.floor(Math.random() * 6);
 
-function shuffleArray(wordsForTheGame){
-    return wordsForTheGame.sort( () => Math.floor(Math.random() * Math.floor(3)) - 1) 
+var wordToClick = wordsForTheGame[randomWord];
 
-}
+var message4Player= document.getElementById('Message4player')
 
-function getPoint(){
-    for(let i = 0; i<wordsForTheGame.length; i++){
-        if(wordsForTheGame[i]===wordToclick){
+let word2ClickDisplay=document.getElementById('word2Click')
+
+
+batonik1.style.backgroundColor=wordsForTheGame[0]
+batonik2.style.backgroundColor=wordsForTheGame[1]
+batonik3.style.backgroundColor=wordsForTheGame[2]
+batonik4.style.backgroundColor=wordsForTheGame[3]
+batonik5.style.backgroundColor=wordsForTheGame[4]
+batonik6.style.backgroundColor=wordsForTheGame[5]
+
+const batons= document.querySelectorAll('.baton');
+batons.forEach(btn =>{
+    btn.style.backgroundColor[randomWord]
+})
+var scoreCard =document.getElementById('result')
+
+batons.forEach(btn => {
+    btn.addEventListener('click', clickEvent => {
+        
+
+        if(btn.style.backgroundColor===wordToClick){
+            if(score !=10){
+            word2ClickDisplay.innerText= wordsForTheGame[randomWord];}
             score++;
-    }}
-};
+            console.log(score);
+            scoreCard.innerText= score;
+            message4Player.innerText="That's the spirit!"
+        }else{
+            message4Player.innerText='u missed cunt!';
+        }  if(score >= 10){
+            scoreCard.innerText='Won the game!';
+            }
+            ; 
+       
+    })
+});
