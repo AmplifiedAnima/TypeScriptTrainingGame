@@ -20,6 +20,12 @@ message4Player.innerText= 'Play the game!'
 let wordToClick = shuffleArray(wordsForTheGame)[0];
 let word2ClickDisplay=document.getElementById('word2Click')
 word2ClickDisplay.innerText= wordToClick
+
+var shuffleButton = document.getElementById('batonik10');
+shuffleButton.addEventListener('click',clickEvent=>{
+    shuffleColors()
+})
+
 batons.forEach(btn => {
     btn.style.backgroundColor = shuffleArray(wordsForTheGame)[0];
 });
@@ -31,6 +37,8 @@ function shuffleColors(){
             btn.style.backgroundColor = shuffleArray(wordsForTheGame)[0];
         })
     };
+
+
 batons.forEach(btn => {
     
     btn.addEventListener('click', clickEvent => {
@@ -38,7 +46,8 @@ batons.forEach(btn => {
         if(btn.style.backgroundColor===  word2ClickDisplay.innerText){
             score++;
             scoreCard.innerText= score;
-            message4Player.innerText=`${word2ClickDisplay.innerText}- u scored!`
+            message4Player.innerText=`${(word2ClickDisplay.innerText)}- u scored!`;
+            message4Player.style.backgroundColor = word2ClickDisplay.innerText;
             console.log(score);
             shuffleColors();
         }else{
