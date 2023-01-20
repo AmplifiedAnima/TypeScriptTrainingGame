@@ -14,15 +14,15 @@ let wordsForTheGame= ['red','blue','yellow','orange','green','black','aqua','gra
 let randomIndex= Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
 // query elements
 
-const shuffledArray = shuffleArray(wordsForTheGame);
-let wordToClick = shuffleArray(wordsForTheGame)[randomIndex];
+var shuffledArray = shuffleArray(wordsForTheGame);
+let wordToClick = shuffledArray[0];
 
-var scoreCard =document.getElementById('result')
-var message4Player= document.getElementById('Message4player')
-let word2ClickDisplay=document.getElementById('word2Click')
+var scoreCard =document.getElementById('result');
+var message4Player= document.getElementById('Message4player');
+let word2ClickDisplay=document.getElementById('word2Click');
 
-message4Player.innerText= 'Play the game!'
-word2ClickDisplay.innerText= wordToClick
+message4Player.innerText= 'Play the game!';
+word2ClickDisplay.innerText= wordToClick;
 
 const batons= document.querySelectorAll('.baton');
 var shuffleButton = document.getElementById('batonik10');
@@ -37,24 +37,23 @@ const timerHtml = document.getElementById('timer');
 var wins= document.getElementById('wins');
 var losses= document.getElementById('losses');
 
-
-
-
 function countdown() {
     timerHtml.innerHTML = timeLeft + ' seconds remaining';
     timeLeft--;
-   
+ 
     if (timeLeft==-1 && score<10){
-        timerHtml.innerHTML= 'Time passed'
-        message4Player.innerText='You lost!'
+        timerHtml.innerHTML= 'Time passed';
+        message4Player.innerText='You lost!';
         clearTimeout(timerId);
         message4Player.innerText='Restart the counter and start again!'
+        message4Player.style.backgroundColor='';
         games_lost++;
     } 
     if (timeLeft==-1 && score>=10){
-        timerHtml.innerHTML= 'Time passed'
-        message4Player.innerText='You Won!'
-        message4Player.innerText='Restart the counter and start again!'
+        timerHtml.innerHTML= 'Time passed';
+        message4Player.innerText='You Won!';
+        message4Player.innerText='Restart the counter and start again!';
+        message4Player.style.backgroundColor='';
         clearTimeout(timerId);
         games_won++;
     }   
@@ -68,26 +67,14 @@ function countdown() {
     }
     wins.innerText= games_won;
     losses.innerText= games_lost;
-}
+};
 
 var timerId = setInterval(countdown, 1000);
-
-
-
-
-function restartTheGame(){
-    timeLeft=20;
-    clearTimeout(timerId);
-    timerId = setInterval(countdown, 1000);
-    score=0;
-    scoreCard.innerText=0;
-    message4Player.innerText='';
-    shuffleColors();
-}
 batons.forEach(btn => {
     
     btn.addEventListener('click', clickEvent => {
-    if(timeLeft!==-1){
+    if(timeLeft!==-1 && score<10 ){
+
         if(btn.style.backgroundColor===  word2ClickDisplay.innerText){
             score++;
             scoreCard.innerText= score;
@@ -98,10 +85,18 @@ batons.forEach(btn => {
             message4Player.innerText= `u missed cunt! check word to click!`;
         }
     }
-        
     });
-});
+ });
 
+function restartTheGame(){
+    timeLeft=20;
+    clearTimeout(timerId);
+    timerId = setInterval(countdown, 1000);
+    score=0;
+    scoreCard.innerText=0;
+    message4Player.innerText='';
+    shuffleColors();
+}
 
 Object.keys(batons).forEach(btn => {
     batons[btn].style.backgroundColor = shuffledArray[btn]
@@ -112,7 +107,7 @@ function shuffleColors(){
     Object.keys(batons).forEach(btn => {
         batons[btn].style.backgroundColor = shuffledArray[btn]
     });
-
+    
     word2ClickDisplay.innerText =shuffleArray(wordsForTheGame)[randomIndex];
 };
 
