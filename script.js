@@ -31,7 +31,7 @@ var restartButton = document.getElementById('batonik11');
 var score = 0;
 let games_won = 0;
 let games_lost= 0;
-var timeLeft = 2;
+var timeLeft = 20;
 
 const timerHtml = document.getElementById('timer');
 var wins= document.getElementById('wins');
@@ -107,7 +107,7 @@ function shuffleColors(){
     Object.keys(batons).forEach(btn => {
         batons[btn].style.backgroundColor = shuffledArray[btn]
     });
-    
+
     word2ClickDisplay.innerText =shuffleArray(wordsForTheGame)[randomIndex];
 };
 
