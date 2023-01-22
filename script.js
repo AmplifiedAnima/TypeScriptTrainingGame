@@ -14,28 +14,28 @@ let wordsForTheGame= ['red','blue','yellow','orange','green','black','aqua','gra
 let randomIndex= Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
 // query elements
 
-var shuffledArray = shuffleArray(wordsForTheGame);
+let shuffledArray = shuffleArray(wordsForTheGame);
 let wordToClick = shuffledArray[0];
 
-var scoreCard =document.getElementById('result');
-var message4Player= document.getElementById('Message4player');
-let word2ClickDisplay=document.getElementById('word2Click');
+const scoreCard = document.getElementById('result');
+const message4Player= document.getElementById('Message4player');
+const word2ClickDisplay=document.getElementById('word2Click');
 
 message4Player.innerText= 'Play the game!';
 word2ClickDisplay.innerText= wordToClick;
 
 const batons= document.querySelectorAll('.baton');
-var shuffleButton = document.getElementById('batonik10');
-var restartButton = document.getElementById('batonik11');
+const shuffleButton = document.getElementById('batonik10');
+const restartButton = document.getElementById('batonik11');
 
-var score = 0;
+let score = 0;
 let games_won = 0;
 let games_lost= 0;
-var timeLeft = 20;
+let timeLeft = 20;
 
 const timerHtml = document.getElementById('timer');
-var wins= document.getElementById('wins');
-var losses= document.getElementById('losses');
+const wins= document.getElementById('wins');
+const losses= document.getElementById('losses');
 
 function countdown() {
     timerHtml.innerHTML = timeLeft + ' seconds remaining';
@@ -49,7 +49,7 @@ function countdown() {
         message4Player.style.backgroundColor='';
         games_lost++;
     } 
-    if (timeLeft==-1 && score>=10){
+    if (timeLeft==-1 && score>=10) {
         timerHtml.innerHTML= 'Time passed';
         message4Player.innerText='You Won!';
         message4Player.innerText='Restart the counter and start again!';
@@ -57,7 +57,7 @@ function countdown() {
         clearTimeout(timerId);
         games_won++;
     }   
-    if(score >= 10){
+    if (score >= 10) {
         scoreCard.innerText='You won the game!';
         message4Player.innerText='Restart the counter and start again!'
         message4Player.style.backgroundColor ='';
@@ -69,7 +69,7 @@ function countdown() {
     losses.innerText= games_lost;
 };
 
-var timerId = setInterval(countdown, 1000);
+const timerId = setInterval(countdown, 1000);
 batons.forEach(btn => {
     
     btn.addEventListener('click', clickEvent => {
@@ -88,7 +88,7 @@ batons.forEach(btn => {
     });
  });
 
-function restartTheGame(){
+function restartTheGame() {
     timeLeft=20;
     clearTimeout(timerId);
     timerId = setInterval(countdown, 1000);
@@ -111,15 +111,11 @@ function shuffleColors(){
     word2ClickDisplay.innerText =shuffleArray(wordsForTheGame)[randomIndex];
 };
 
-shuffleButton.addEventListener('click',clickEvent=>{
+shuffleButton.addEventListener('click', (clickEvent) => {
     shuffleColors()
 })
 
 restartButton.addEventListener('click',clickEvent=> {
     restartTheGame();
 })
-
-
-
-
  
