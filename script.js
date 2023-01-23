@@ -24,8 +24,8 @@ message4Player.innerText= 'Play the game!';
 word2ClickDisplay.innerText= wordToClick;
 
 const batons= document.querySelectorAll('.baton');
-const shuffleButton = document.getElementById('batonik10');
-const restartButton = document.getElementById('batonik11');
+const shuffleButton = document.getElementById('button10');
+const restartButton = document.getElementById('button11');
 
 
 let score = 0;
@@ -80,9 +80,9 @@ function countdown() {
 batons.forEach(btn => {
     
     btn.addEventListener('click', clickEvent => {
-    if(timeLeft > -1 && score < 10 ){
+    if (timeLeft > -1 && score < 10 ) {
 
-        if(btn.style.backgroundColor===  word2ClickDisplay.innerText){
+        if (btn.style.backgroundColor===  word2ClickDisplay.innerText) {
             score++;
             scoreCard.innerText= score;
             message4Player.innerText=`${(word2ClickDisplay.innerText)}- u scored!`;
@@ -92,12 +92,9 @@ batons.forEach(btn => {
             message4Player.innerText= `u missed cunt! check word to click!`;
         }
     }
-    else{
-        
-    }
- 
     });
  });
+
 function shuffleColors(){
 
     Object.keys(batons).forEach(btn => {
