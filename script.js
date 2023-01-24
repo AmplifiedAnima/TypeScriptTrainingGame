@@ -24,8 +24,8 @@ message4Player.innerText= 'Play the game!';
 word2ClickDisplay.innerText= wordToClick;
 
 const batons= document.querySelectorAll('.baton');
-const shuffleButton = document.getElementById('button10');
-const restartButton = document.getElementById('button11');
+const shuffleButton = document.getElementById('shuffleButton');
+const restartButton = document.getElementById('restartButton');
 
 
 let score = 0;
