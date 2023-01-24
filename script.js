@@ -18,7 +18,7 @@ let wordToClick = shuffledArray[0];
 
 const scoreCard = document.getElementById('result');
 const message4Player= document.getElementById('Message4player');
-const word2ClickDisplay=document.getElementById('word2Click');
+const word2ClickDisplay = document.getElementById('word2Click');
 
 message4Player.innerText = 'Play the game!';
 word2ClickDisplay.innerText = wordToClick;
@@ -34,8 +34,8 @@ let games_lost= 0;
 let timeLeft = 20;
 
 const timerHtml = document.getElementById('timer');
-const wins= document.getElementById('wins');
-const losses= document.getElementById('losses');
+const wins = document.getElementById('wins');
+const losses = document.getElementById('losses');
 
 let timerId = setInterval(countdown, 1000);
 
@@ -58,10 +58,10 @@ function countdown() {
     timeLeft--;
 
     if (timeLeft === -1 && score < 10) {
-        timerHtml.innerHTML= 'Time passed';
-        message4Player.innerText='You lost!';
-        message4Player.innerText='Restart the counter and start again!'
-        message4Player.style.backgroundColor='';
+        timerHtml.innerHTML = 'Time passed';
+        message4Player.innerText = 'You lost!';
+        message4Player.innerText = 'Restart the counter and start again!'
+        message4Player.style.backgroundColor = '';
         games_lost++;
         clearInterval(timerId);
     } 
@@ -73,8 +73,8 @@ function countdown() {
         games_won++;
         clearInterval(timerId);
     }   
-    wins.innerText= games_won;
-    losses.innerText= games_lost;
+    wins.innerText = games_won;
+    losses.innerText = games_lost;
 };
 
 batons.forEach( btn => {
