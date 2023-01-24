@@ -9,7 +9,7 @@ function shuffleArray (arr) {
     return arr;
   }
 
-let wordsForTheGame= ['red','blue','yellow','orange','green','black','aqua','gray','purple'];
+let wordsForTheGame = ['red','blue','yellow','orange','green','black','aqua','gray','purple'];
 let randomIndex= Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
 // query elements
 
@@ -20,8 +20,8 @@ const scoreCard = document.getElementById('result');
 const message4Player= document.getElementById('Message4player');
 const word2ClickDisplay=document.getElementById('word2Click');
 
-message4Player.innerText= 'Play the game!';
-word2ClickDisplay.innerText= wordToClick;
+message4Player.innerText = 'Play the game!';
+word2ClickDisplay.innerText = wordToClick;
 
 const batons= document.querySelectorAll('.baton');
 const shuffleButton = document.getElementById('shuffleButton');
@@ -40,12 +40,12 @@ const losses= document.getElementById('losses');
 let timerId = setInterval(countdown, 1000);
 
 function restartTheGame() {
-    score=0;
-    scoreCard.innerText=0;
+    score = 0;
+    scoreCard.innerText = 0;
     clearInterval(timerId)
-    timeLeft= 20;
+    timeLeft = 20;
     timerId = setInterval(countdown,1000);
-    message4Player.innerText='';
+    message4Player.innerText = '';
     shuffleColors();
 }
 
@@ -57,7 +57,7 @@ function countdown() {
     timerHtml.innerHTML = timeLeft + ' seconds remaining';
     timeLeft--;
 
-    if (timeLeft===-1 && score < 10) {
+    if (timeLeft === -1 && score < 10) {
         timerHtml.innerHTML= 'Time passed';
         message4Player.innerText='You lost!';
         message4Player.innerText='Restart the counter and start again!'
@@ -65,11 +65,11 @@ function countdown() {
         games_lost++;
         clearInterval(timerId);
     } 
-    if (timeLeft==-1 && score>=10 || score>=10) {
-        timerHtml.innerHTML= 'Time passed';
-        message4Player.innerText='You Won!';
-        message4Player.innerText='Restart the counter and start again!';
-        message4Player.style.backgroundColor='';
+    if (timeLeft === -1 && score >= 10 || score >= 10) {
+        timerHtml.innerHTML = 'Time passed';
+        message4Player.innerText = 'You Won!';
+        message4Player.innerText = 'Restart the counter and start again!';
+        message4Player.style.backgroundColor = '';
         games_won++;
         clearInterval(timerId);
     }   
@@ -79,17 +79,17 @@ function countdown() {
 
 batons.forEach(btn => {
     
-    btn.addEventListener('click', clickEvent => {
+    btn.addEventListener('click', (clickEvent) => {
     if (timeLeft > -1 && score < 10 ) {
 
-        if (btn.style.backgroundColor===  word2ClickDisplay.innerText) {
+        if (btn.style.backgroundColor === word2ClickDisplay.innerText) {
             score++;
-            scoreCard.innerText= score;
-            message4Player.innerText=`${(word2ClickDisplay.innerText)}- u scored!`;
+            scoreCard.innerText = score;
+            message4Player.innerText = `${(word2ClickDisplay.innerText)}- u scored!`;
             console.log(score);
             shuffleColors();
-        }else{
-            message4Player.innerText= `u missed cunt! check word to click!`;
+        } else {
+            message4Player.innerText = `u missed cunt! check word to click!`;
         }
     }
     });
@@ -97,18 +97,18 @@ batons.forEach(btn => {
 
 function shuffleColors(){
 
-    Object.keys(batons).forEach(btn => {
+    Object.keys(batons).forEach( btn => {
         batons[btn].style.backgroundColor = shuffledArray[btn]
     });
 
-    word2ClickDisplay.innerText =shuffleArray(wordsForTheGame)[randomIndex];
+    word2ClickDisplay.innerText = shuffleArray(wordsForTheGame)[randomIndex];
 };
 
 shuffleButton.addEventListener('click', (clickEvent) => {
     shuffleColors()
 })
 
-restartButton.addEventListener('click',clickEvent=> {
+restartButton.addEventListener('click', (clickEvent) => {
     restartTheGame();
 })
  
