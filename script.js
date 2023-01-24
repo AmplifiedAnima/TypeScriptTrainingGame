@@ -95,7 +95,7 @@ batons.forEach(btn => {
     });
  });
 
-function shuffleColors(){
+function shuffleColors() {
 
     Object.keys(batons).forEach( btn => {
         batons[btn].style.backgroundColor = shuffledArray[btn]
