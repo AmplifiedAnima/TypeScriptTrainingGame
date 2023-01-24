@@ -2,18 +2,18 @@ body {
     background-color: lightblue;
   }
 
-.col{
+.col {
     padding:20px 20px;
   }
-.row{
+.row {
     padding:20px 10px;
     margin:10px;
     justify-content: center;
 }
-.container{
+.container {
   position:relative;
 }
-.baton{
+.baton {
    font-size: 40px;
    margin: 30px;
    padding:50px;
@@ -23,12 +23,12 @@ body {
    position: flex;
  
 }
-#button10,#button11{
+#shuffleButton,#restartButton {
   font-size: 50px;
   margin: 40px;
   padding:60px;
 }
-#Message4player{
+#Message4player {
   color:white;
   font: bold;
 }
