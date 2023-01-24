@@ -49,7 +49,7 @@ function restartTheGame() {
     shuffleColors();
 }
 
-Object.keys(batons).forEach( btn => {
+Object.keys(batons).forEach( (btn) => {
     batons[btn].style.backgroundColor = shuffledArray[btn]
 });
 
@@ -77,7 +77,7 @@ function countdown() {
     losses.innerText = games_lost;
 };
 
-batons.forEach( btn => {
+batons.forEach( (btn) => {
     
     btn.addEventListener('click', (clickEvent) => {
     if (timeLeft > -1 && score < 10 ) {
@@ -97,7 +97,7 @@ batons.forEach( btn => {
 
 function shuffleColors() {
 
-    Object.keys(batons).forEach( btn => {
+    Object.keys(batons).forEach( (btn) => {
         batons[btn].style.backgroundColor = shuffledArray[btn]
     });
 
