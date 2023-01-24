@@ -10,7 +10,7 @@ function shuffleArray (arr) {
   }
 
 let wordsForTheGame = ['red','blue','yellow','orange','green','black','aqua','gray','purple'];
-let randomIndex= Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
+let randomIndex = Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
 // query elements
 
 let shuffledArray = shuffleArray(wordsForTheGame);
@@ -106,9 +106,9 @@ function shuffleColors() {
 
 shuffleButton.addEventListener('click', (clickEvent) => {
     shuffleColors()
-})
+});
 
 restartButton.addEventListener('click', (clickEvent) => {
     restartTheGame();
-})
+});
  
