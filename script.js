@@ -7,7 +7,7 @@ function shuffleArray (arr) {
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
-  }
+  };
 
 let wordsForTheGame = ['red','blue','yellow','orange','green','black','aqua','gray','purple'];
 let randomIndex = Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
@@ -47,7 +47,7 @@ function restartTheGame() {
     timerId = setInterval(countdown,1000);
     message4Player.innerText = '';
     shuffleColors();
-}
+};
 
 Object.keys(batons).forEach( (btn) => {
     batons[btn].style.backgroundColor = shuffledArray[btn]
