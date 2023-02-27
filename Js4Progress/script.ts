@@ -1,5 +1,6 @@
 
 // shuffling colors so they don't repeat
+type btn = {[key: string]: number};
 
 function shuffleArray (arr: string[]): string[] {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -9,12 +10,12 @@ function shuffleArray (arr: string[]): string[] {
     return arr;
   };
 
-let wordsForTheGame: string[] = ['red','blue','yellow','orange','green','black','aqua','gray','purple'];
-let randomIndex: number = Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
+const wordsForTheGame: string[] = ['red','blue','yellow','orange','green','black','aqua','gray','purple'];
+const randomIndex: number = Math.floor(Math.random() * Math.floor(wordsForTheGame.length - 1))
 // query elements
 
-let shuffledArray: string[] = shuffleArray(wordsForTheGame);
-let wordToClick: string = shuffledArray[0];
+const shuffledArray: string[] = shuffleArray(wordsForTheGame);
+const wordToClick: string = shuffledArray[0];
 
 const scoreCard: HTMLElement | null= document.getElementById('result')
 const message4Player: HTMLElement| null = document.getElementById('Message4player')
@@ -48,7 +49,6 @@ function restartTheGame(): void {
     message4Player!.innerText = '';
     shuffleColors();
 };
-type btn = {[key: string]: number};
 
 [...batons].forEach((btn, idx) => {
     btn.style.backgroundColor = shuffledArray[idx];
@@ -99,8 +99,8 @@ batons.forEach((btn): void => {
 
 function shuffleColors(): void {
 
-    Object.keys(batons).forEach((btn:any) => {
-        batons[btn].style.backgroundColor = shuffledArray[btn]
+    [...batons].forEach((btn, idx) =>  {
+        btn.style.backgroundColor = shuffledArray[idx];
     });
 
     word2ClickDisplay!.innerText = shuffleArray(wordsForTheGame)[randomIndex];
